@@ -1,0 +1,47 @@
+---
+
+- name: "Download latest bungee chord proxy server"
+  get_url:
+    url: "{{ bungee_url }}"
+    dest: "/home/INNO_Utils/bungee-spigot/bungee/{{ bungee_dl_name }}"
+    mode: '0777'
+
+- name: Create folder structure within user directories
+  file:
+    path: "/home/{{ item }}/bungeecord"
+    state: directory
+    recurse: true
+    owner: "{{ item }}"
+    group: "{{ item }}"
+  loop:
+    "{{ sp_users }}"
+
+- name: Link the current Bungeecord version to the users directory
+  file:
+    src: "/home/INNO_Utils/bungee-spigot/bungee/{{ bungee_dl_name }}"
+    dest: "/home/{{ item }}/bungeecord/BungeeCord.jar"
+    owner: "{{ item }}"
+    group: "{{ item }}"
+    state: link
+  loop:
+    "{{ sp_users }}"
+
+- name: Copy server-start template script to directory
+  template:
+    src: templates/server-start.sh.j2
+    dest: /home/{{ item }}/bungeecord/server-start.sh
+    owner: "{{ item }}"
+    group: "{{ item }}"
+    mode: '0744'
+  loop:
+    "{{ sp_users }}"
+
+- name: Copy Spigot Config to live directory
+  template:
+    src: templates/config.yml.j2
+    dest: /home/{{ item }}/bungeecord/config.yml
+    owner: "{{ item }}"
+    group: "{{ item }}"
+    mode: '0744'
+  loop:
+    "{{ sp_users }}"
