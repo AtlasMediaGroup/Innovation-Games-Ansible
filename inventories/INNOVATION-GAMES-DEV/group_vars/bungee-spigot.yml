@@ -1,0 +1,4 @@
+# All Variables needed to get the Bungee Spigot Servers up and running. 
+
+sp_users:
+  - SP_01

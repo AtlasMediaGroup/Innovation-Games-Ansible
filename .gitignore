@@ -1,2 +1,2 @@
 /roles/java-linux/*
-#/inventories/INNOVATION-GAMES-DEV/hosts.yml
+/inventories/INNOVATION-GAMES-DEV/hosts.yml
