@@ -1,0 +1,13 @@
+---
+########################################################################
+#
+# Playbook to bootstrap all our servers to a basic standard.
+#
+# Requires ROOT Access on the box to execute 
+#
+########################################################################
+
+- hosts: all
+  become: true
+
+# Additional content to follow, just a place holder for now to gather content
