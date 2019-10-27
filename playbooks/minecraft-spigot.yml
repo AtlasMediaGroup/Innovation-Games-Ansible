@@ -1,0 +1,10 @@
+---
+########################################################################
+#
+# Playbook to install the basic Spigot server to a specified version
+#
+# Requires ROOT Access on the box to execute 
+#
+########################################################################
+
+- hosts: minecraft-spigot

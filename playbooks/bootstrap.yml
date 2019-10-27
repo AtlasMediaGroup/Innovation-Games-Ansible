@@ -9,5 +9,17 @@
 
 - hosts: all
   become: true
+  tasks:
 
-# Additional content to follow, just a place holder for now to gather content
+- name: Install all available yum updates on the host
+  when: "ansible_os_family == 'RedHat'"
+  yum:
+    name: *
+    state: latest
+
+
+- name: Install Java on hosts
+  include_role:
+    name: java-linux
+  vars:
+    java_packages: java-1.8.0-openjdk

@@ -1,0 +1,19 @@
+---
+########################################################################
+#
+# Playbook to install & configure the bungee proxy. 
+#
+# Requires ROOT Access on the box to execute 
+#
+########################################################################
+
+- hosts: bungee-spigot
+  become: true
+  tasks:
+
+- name: Create Users on the OS
+  user:
+    name: "{{ item }}"
+    state: present
+  loop:
+    {{ users }}
