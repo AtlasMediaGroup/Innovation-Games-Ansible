@@ -3,3 +3,6 @@ The entirety of the Innovation Games server deployment is being build using Ansi
 
 ## Inventory Files
 In order to ensure we are able to protect the core infrastructure appropriately, we do not include our inventory files within this project, however there are placeholder files in place which you can modify yourself. 
+
+## Requirements File
+In order to download the required roles, you will need to run `ansible-galaxy install -r requirements.yml` to download the roles. 
