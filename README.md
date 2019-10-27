@@ -6,3 +6,6 @@ In order to ensure we are able to protect the core infrastructure appropriately,
 
 ## Requirements File
 In order to download the required roles, you will need to run `ansible-galaxy install -r requirements.yml` to download the roles. 
+
+## Known Issues
+An issue has been identified where the yum module seems to hang on first load, this can often make it easier to just update by hand on the boxes as you provision them, as you currently have to login anyway to add the SSH Key to your known hosts. 
