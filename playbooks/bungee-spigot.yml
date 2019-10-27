@@ -17,3 +17,41 @@
       state: present
     loop:
       "{{ sp_users }}"
+
+  - name: Create Folders for Application Instances
+    file:
+      path: /home/INNO_Utils/bungee-spigot
+      state: directory
+      recurse: true
+
+  - name: Create Folders for the Bungee Chord Setup
+    file:
+      path: /home/INNO_Utils/bungee-spigot/bungee
+      state: directory
+      recurse: true
+
+  - name: "Download latest bungee chord proxy server"
+    get_url:
+      url: "{{ bungee_url }}"
+      dest: "/home/INNO_Utils/bungee-spigot/bungee/{{ bungee_dl_name }}"
+      mode: '0777'
+
+  - name: Create folder structure within user directories
+    file:
+      path: "/home/{{ item }}/bungeecord"
+      state: directory
+      recurse: true
+      owner: "{{ item }}"
+      group: "{{ item }}"
+    loop:
+      "{{ sp_users }}"
+
+  - name: Link the current Bungeecord version to the users directory
+    file:
+      src: "/home/INNO_Utils/bungee-spigot/bungee/{{ bungee_dl_name }}"
+      dest: "/home/{{ item }}/bungeecord/BungeeCord.jar"
+      owner: "{{ item }}"
+      group: "{{ item }}"
+      state: link
+    loop:
+      "{{ sp_users }}"

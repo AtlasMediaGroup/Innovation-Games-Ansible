@@ -1,4 +1,5 @@
 # All Variables needed to get the Minecraft Spigot Servers up and running. 
+# We assume all servers will be made identically in terms of it's configuration which is why some variables here will be static where they may not make the sense to do so usually. 
 
 mc_users:
   - MC_01

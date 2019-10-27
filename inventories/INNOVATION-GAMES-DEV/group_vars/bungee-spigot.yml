@@ -1,4 +1,9 @@
 # All Variables needed to get the Bungee Spigot Servers up and running. 
+# We assume all servers will be made identically in terms of it's configuration which is why some variables here will be static where they may not make the sense to do so usually. 
+
 
 sp_users:
   - SP_01
+
+bungee_url: https://ci.md-5.net/job/BungeeCord/1421/artifact/bootstrap/target/BungeeCord.jar
+bungee_dl_name: BungeeCord-1421.jar

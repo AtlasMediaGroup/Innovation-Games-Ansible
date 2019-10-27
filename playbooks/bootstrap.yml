@@ -23,3 +23,8 @@
       name: java-linux
     vars:
       java_packages: java-1.8.0-openjdk
+
+  - name: Install Pre-Req Dependencies
+    yum:
+      name: "screen"
+      state: latest
